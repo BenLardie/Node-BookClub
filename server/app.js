@@ -14,6 +14,14 @@ const usersRouter = require('./routes/users');
 
 const app = express();
 
+app.use('*', cors());
+app.use('/graphql', cors(), graphqlHTTP({
+  schema: schema,
+  rootValue: global,
+  graphiql: true,
+
+}));
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -48,12 +56,6 @@ useNewUrlParser: true })
 .then(()=> console.log('connection successful'))
 .catch((err) => console.error(err));
 
-app.use('*', cors());
-app.use('/graphql', cors(), graphqlHTTP({
-  schema: schema,
-  rootValue: global,
-  graphiql: true,
 
-}));
 
 module.exports = app;

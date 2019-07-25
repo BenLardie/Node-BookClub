@@ -5,8 +5,9 @@ const GraphQLNonNull = require('graphql').GraphQLNonNull;
 const GraphQLID = require('graphql').GraphQLID;
 const GraphQLString = require('graphql').GraphQLString;
 const GraphQLInt = require('graphql').GraphQLInt;
-const GraphQLDate = require('graphql-iso-date');
+const GraphQLDate = require('graphql-iso-date').GraphQLDate;
 const BookModel = require('../models/Book');
+
 
 const bookType = new GraphQLObjectType({
     name: 'book',
